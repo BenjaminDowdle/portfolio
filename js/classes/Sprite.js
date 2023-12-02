@@ -5,6 +5,7 @@ class Sprite {
     frameRate = 1,
     frameBuffer = 3,
     scale = 1,
+    parallax = 0,
   }) {
     this.position = position;
     this.scale = scale;
@@ -20,6 +21,8 @@ class Sprite {
     this.currentFrame = 0;
     this.frameBuffer = frameBuffer;
     this.elapsedFrames = 0;
+    this.parallax = parallax;
+    this.moveCamera = false;
   }
 
   draw() {
@@ -45,6 +48,16 @@ class Sprite {
       this.width,
       this.height
     );
+  }
+
+  parallaxRight() {
+    this.position.x += this.parallax;
+    this.update();
+  }
+
+  parallaxLeft() {
+    this.position.x -= this.parallax;
+    this.update();
   }
 
   update() {

@@ -120,13 +120,63 @@ const keys = {
   },
 };
 
-const background = new Sprite({
-  position: {
-    x: 0,
-    y: 0,
-  },
-  imageSrc: "./img/background.png",
-});
+const layers = [
+  new Sprite({
+    position: {
+      x: 0,
+      y: 0,
+    },
+    imageSrc: "./img/background-sky.png",
+  }),
+  new Sprite({
+    position: {
+      x: 0,
+      y: 762,
+    },
+    imageSrc: "./img/background-layer-4.png",
+    parallax: 4,
+  }),
+  new Sprite({
+    position: {
+      x: 0,
+      y: 575,
+    },
+    imageSrc: "./img/background-layer-5.png",
+    parallax: 3,
+  }),
+  new Sprite({
+    position: {
+      x: 0,
+      y: 815,
+    },
+    imageSrc: "./img/background-layer-3.png",
+    parallax: 2.5,
+  }),
+  new Sprite({
+    position: {
+      x: 0,
+      y: 828,
+    },
+    imageSrc: "./img/background-layer-2.png",
+    parallax: 2,
+  }),
+  new Sprite({
+    position: {
+      x: 0,
+      y: 833,
+    },
+    imageSrc: "./img/background-layer-1.png",
+    parallax: 1.5,
+  }),
+
+  new Sprite({
+    position: {
+      x: 0,
+      y: 0,
+    },
+    imageSrc: "./img/background.png",
+  }),
+];
 
 const backgroundImageHeight = 1728;
 
@@ -151,7 +201,9 @@ function animate() {
     c.save();
     c.scale(1.5, 1.5);
     c.translate(camera.position.x, camera.position.y);
-    background.update();
+    layers.forEach((layer) => {
+      layer.update();
+    });
     collisionBlocks.forEach((collisionBlock) => {
       collisionBlock.update();
     });
@@ -160,20 +212,29 @@ function animate() {
       block.update();
     });
 
-    player.checkForHorizontalCanvasCollision();
-    player.update();
-
     player.velocity.x = 0;
     if (keys.d.pressed) {
       player.switchSprite("Run");
       player.velocity.x = 5;
       player.lastDirection = "right";
       player.shouldPanCameraToTheLeft({ canvas, camera });
+      if (player.moveCamera === true) {
+        layers.forEach((layer) => {
+          layer.parallaxRight();
+        });
+      }
+      player.moveCamera = false;
     } else if (keys.a.pressed) {
       player.switchSprite("RunLeft");
       player.velocity.x = -5;
       player.lastDirection = "left";
       player.shouldPanCameraToTheRight({ canvas, camera });
+      if (player.moveCamera === true) {
+        layers.forEach((layer) => {
+          layer.parallaxLeft();
+        });
+      }
+      player.moveCamera = false;
     } else if (player.velocity.y === 0) {
       if (player.lastDirection === "right") player.switchSprite("Idle");
       else player.switchSprite("IdleLeft");
@@ -188,6 +249,9 @@ function animate() {
       if (player.lastDirection === "right") player.switchSprite("Fall");
       else player.switchSprite("FallLeft");
     }
+
+    player.checkForHorizontalCanvasCollision();
+    player.update();
 
     c.restore();
   }

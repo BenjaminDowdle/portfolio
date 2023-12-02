@@ -85,6 +85,7 @@ class Player extends Sprite {
       cameraboxRightSide >=
       scaledDownCanvasWidth + Math.abs(camera.position.x)
     ) {
+      this.moveCamera = true;
       camera.position.x -= this.velocity.x;
     }
   }
@@ -93,6 +94,7 @@ class Player extends Sprite {
     if (this.camerabox.position.x <= 0) return;
 
     if (this.camerabox.position.x <= Math.abs(camera.position.x)) {
+      this.moveCamera = true;
       camera.position.x -= this.velocity.x;
     }
   }
