@@ -49,7 +49,7 @@ platformCollisions2D.forEach((row, y) => {
             x: x * 16,
             y: y * 16,
           },
-          height: 4,
+          height: 16,
         })
       );
     }
@@ -275,10 +275,16 @@ window.addEventListener("keydown", (event) => {
       keys.a.pressed = true;
       break;
     case " ":
-      if (player.velocity.y === 0) {
+      if (
+        player.velocity.y === 0 &&
+        player.position.x >= 1645 &&
+        player.position.y >= 1510
+      ) {
+        player.velocity.y = -14.5;
+      } else if (player.velocity.y === 0) {
         player.velocity.y = -5;
+        break;
       }
-      break;
   }
 });
 
