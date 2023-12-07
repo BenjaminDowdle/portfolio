@@ -120,6 +120,58 @@ const keys = {
   },
 };
 
+const blocks = [
+  new Sprite({
+    position: {
+      x: 288,
+      y: 864,
+    },
+    imageSrc: "./img/coin-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 416,
+      y: 864,
+    },
+    imageSrc: "./img/brick-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 432,
+      y: 864,
+    },
+    imageSrc: "./img/coin-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 448,
+      y: 864,
+    },
+    imageSrc: "./img/brick-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 464,
+      y: 864,
+    },
+    imageSrc: "./img/coin-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 480,
+      y: 864,
+    },
+    imageSrc: "./img/brick-block.png"
+  }),
+  new Sprite({
+    position: {
+      x: 448,
+      y: 768,
+    },
+    imageSrc: "./img/coin-block.png"
+  }),
+]
+
 const layers = [
   new Sprite({
     position: {
@@ -201,16 +253,7 @@ function animate() {
     c.save();
     c.scale(1.5, 1.5);
     c.translate(camera.position.x, camera.position.y);
-    layers.forEach((layer) => {
-      layer.update();
-    });
-    collisionBlocks.forEach((collisionBlock) => {
-      collisionBlock.update();
-    });
-
-    platformCollisionBlocks.forEach((block) => {
-      block.update();
-    });
+    
 
     player.velocity.x = 0;
     if (keys.d.pressed) {
@@ -239,6 +282,20 @@ function animate() {
       if (player.lastDirection === "right") player.switchSprite("Idle");
       else player.switchSprite("IdleLeft");
     }
+
+    layers.forEach((layer) => {
+      layer.update();
+    });
+    blocks.forEach((block) => {
+      block.update()
+    })
+    collisionBlocks.forEach((collisionBlock) => {
+      collisionBlock.update();
+    });
+
+    platformCollisionBlocks.forEach((block) => {
+      block.update();
+    });
 
     if (player.velocity.y < 0) {
       player.shouldPanCameraDown({ camera, canvas });
