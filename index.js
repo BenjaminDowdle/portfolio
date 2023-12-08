@@ -34,6 +34,29 @@ floorCollisions2D.forEach((row, y) => {
   });
 });
 
+const blockCollisions2D = [];
+for (let i = 0; i < blockCollisions.length; i += 128) {
+  blockCollisions2D.push(blockCollisions.slice(i, i + 128));
+}
+
+const blockCollisionBlocks = [];
+blockCollisions2D.forEach((row, y) => {
+  row.forEach((symbol, x) => {
+    if (symbol === 20737) {
+      blockCollisionBlocks.push(
+        new CollisionBlock({
+          position: {
+            x: x * 24,
+            y: y * 24,
+          },
+          width: 24,
+          height: 24,
+        })
+      );
+    }
+  });
+});
+
 const platformCollisions2D = [];
 for (let i = 0; i < platformCollisions.length; i += 192) {
   platformCollisions2D.push(platformCollisions.slice(i, i + 192));
@@ -65,6 +88,7 @@ const player = new Player({
   },
   collisionBlocks,
   platformCollisionBlocks,
+  blockCollisionBlocks,
   imageSrc: "./img/player/Idle.png",
   frameRate: 11,
   animations: {
@@ -130,28 +154,14 @@ const blocks = [
   }),
   new Sprite({
     position: {
-      x: 416,
-      y: 864,
-    },
-    imageSrc: "./img/brick-block.png",
-  }),
-  new Sprite({
-    position: {
       x: 432,
       y: 864,
     },
-    imageSrc: "./img/coin-block.png",
-  }),
-  new Sprite({
-    position: {
-      x: 448,
-      y: 864,
-    },
     imageSrc: "./img/brick-block.png",
   }),
   new Sprite({
     position: {
-      x: 464,
+      x: 456,
       y: 864,
     },
     imageSrc: "./img/coin-block.png",
@@ -165,7 +175,21 @@ const blocks = [
   }),
   new Sprite({
     position: {
-      x: 448,
+      x: 504,
+      y: 864,
+    },
+    imageSrc: "./img/coin-block.png",
+  }),
+  new Sprite({
+    position: {
+      x: 528,
+      y: 864,
+    },
+    imageSrc: "./img/brick-block.png",
+  }),
+  new Sprite({
+    position: {
+      x: 480,
       y: 768,
     },
     imageSrc: "./img/coin-block.png",
@@ -288,10 +312,12 @@ function animate() {
     blocks.forEach((block) => {
       block.update();
     });
+    blockCollisionBlocks.forEach((block) => {
+      block.update();
+    });
     collisionBlocks.forEach((collisionBlock) => {
       collisionBlock.update();
     });
-
     platformCollisionBlocks.forEach((block) => {
       block.update();
     });
