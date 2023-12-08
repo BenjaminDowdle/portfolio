@@ -56,7 +56,7 @@ platformCollisions2D.forEach((row, y) => {
   });
 });
 
-const gravity = 0.12;
+const gravity = 0.6;
 
 const player = new Player({
   position: {
@@ -126,51 +126,51 @@ const blocks = [
       x: 288,
       y: 864,
     },
-    imageSrc: "./img/coin-block.png"
+    imageSrc: "./img/coin-block.png",
   }),
   new Sprite({
     position: {
       x: 416,
       y: 864,
     },
-    imageSrc: "./img/brick-block.png"
+    imageSrc: "./img/brick-block.png",
   }),
   new Sprite({
     position: {
       x: 432,
       y: 864,
     },
-    imageSrc: "./img/coin-block.png"
+    imageSrc: "./img/coin-block.png",
   }),
   new Sprite({
     position: {
       x: 448,
       y: 864,
     },
-    imageSrc: "./img/brick-block.png"
+    imageSrc: "./img/brick-block.png",
   }),
   new Sprite({
     position: {
       x: 464,
       y: 864,
     },
-    imageSrc: "./img/coin-block.png"
+    imageSrc: "./img/coin-block.png",
   }),
   new Sprite({
     position: {
       x: 480,
       y: 864,
     },
-    imageSrc: "./img/brick-block.png"
+    imageSrc: "./img/brick-block.png",
   }),
   new Sprite({
     position: {
       x: 448,
       y: 768,
     },
-    imageSrc: "./img/coin-block.png"
+    imageSrc: "./img/coin-block.png",
   }),
-]
+];
 
 const layers = [
   new Sprite({
@@ -253,7 +253,6 @@ function animate() {
     c.save();
     c.scale(1.5, 1.5);
     c.translate(camera.position.x, camera.position.y);
-    
 
     player.velocity.x = 0;
     if (keys.d.pressed) {
@@ -287,8 +286,8 @@ function animate() {
       layer.update();
     });
     blocks.forEach((block) => {
-      block.update()
-    })
+      block.update();
+    });
     collisionBlocks.forEach((collisionBlock) => {
       collisionBlock.update();
     });
@@ -337,9 +336,9 @@ window.addEventListener("keydown", (event) => {
         player.position.x >= 1645 &&
         player.position.y >= 1510
       ) {
-        player.velocity.y = -14.5;
+        player.velocity.y = -32;
       } else if (player.velocity.y === 0) {
-        player.velocity.y = -5;
+        player.velocity.y = -11.5;
         break;
       }
   }
