@@ -254,6 +254,39 @@ const layers = [
   }),
 ];
 
+const signs = [
+  new Sprite({
+    position: {
+      x:750,
+      y:928,
+    },
+    imageSrc: './img/sign.png',
+    message: "Hello. This is my world"
+  }),
+  new Sprite({
+    position: {
+      x:1600,
+      y:928,
+    },
+    imageSrc: './img/sign.png',
+    message: 'Fall down the well to check out my contact info.'
+  }),
+  new Sprite({
+    position: {
+      x:1900,
+      y:928,
+    },
+    imageSrc: './img/sign.png'
+  }),
+  new Sprite({
+    position: {
+      x:2386,
+      y:416,
+    },
+    imageSrc: './img/sign.png'
+  }),
+]
+
 const backgroundImageHeight = 1728;
 
 const camera = {
@@ -263,16 +296,15 @@ const camera = {
   },
 };
 
+let visible = false
+
 function animate() {
   window.requestAnimationFrame(animate);
-
+  
   now = Date.now();
   elapsed = now - then;
   if (elapsed > fpsInterval) {
     then = now - (elapsed % fpsInterval);
-
-    // c.fillStyle = "white";
-    // c.fillRect(0, 0, canvas.width, canvas.height);
 
     c.save();
     c.scale(1.5, 1.5);
@@ -312,6 +344,9 @@ function animate() {
     blocks.forEach((block) => {
       block.update();
     });
+    signs.forEach((sign) => {
+      sign.update()
+    })
     blockCollisionBlocks.forEach((block) => {
       block.update();
     });
@@ -321,6 +356,30 @@ function animate() {
     platformCollisionBlocks.forEach((block) => {
       block.update();
     });
+
+    let div = document.querySelector('#overlay')
+    div.setAttribute('class', 'invisible')
+
+    signs.forEach((sign) => {
+      let signTrigger = {
+        position: {
+          x: sign.position.x - 15,
+          y: sign.position.y - 36,
+        },
+        width: sign.width + 30,
+        height: sign.height + 36,
+      }
+      
+      // c.fillStyle = 'rgba(255, 0, 0, .5)'
+      // c.fillRect(signTrigger.position.x, signTrigger.position.y, signTrigger.width, signTrigger.height)
+              
+      if(player.position.x + player.width > sign.position.x && player.position.x < sign.position.x + sign.width && player.position.y + player.height > sign.position.y){
+        let div = document.querySelector('#overlay')
+        let p = document.querySelector('#overlay-text')
+        p.innerHTML = sign.message
+        div.setAttribute('class', 'visible')
+      }
+    })
 
     if (player.velocity.y < 0) {
       player.shouldPanCameraDown({ camera, canvas });
@@ -380,3 +439,4 @@ window.addEventListener("keyup", (event) => {
       break;
   }
 });
+

@@ -6,6 +6,7 @@ class Sprite {
     frameBuffer = 3,
     scale = 1,
     parallax = 0,
+    message = ""
   }) {
     this.position = position;
     this.scale = scale;
@@ -23,6 +24,7 @@ class Sprite {
     this.elapsedFrames = 0;
     this.parallax = parallax;
     this.moveCamera = false;
+    this.message = message
   }
 
   draw() {
