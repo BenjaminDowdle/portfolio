@@ -276,7 +276,8 @@ const signs = [
       x:1900,
       y:928,
     },
-    imageSrc: './img/sign.png'
+    imageSrc: './img/sign.png',
+    message: 'Go up to see my previous projects.'
   }),
   new Sprite({
     position: {
