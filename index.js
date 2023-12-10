@@ -261,7 +261,7 @@ const doors = [
   new Sprite({
     position: {
       x: 150,
-      y: 928,
+      y: 896,
     },
     imageSrc: "./img/door.png",
     frameRate: 6,
