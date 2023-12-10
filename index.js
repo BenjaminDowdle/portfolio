@@ -271,20 +271,177 @@ const doors = [
   }),
   new Sprite({
     position: {
-      x: 140,
-      y: 896,
+      x: 2193,
+      y: 128,
     },
     imageSrc: "./img/door.png",
     frameRate: 6,
-    frameBuffer: 4,
+    frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "Enter with 'W'... If you dare...",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  }),
+  new Sprite({
+    position: {
+      x: 2001,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 1809,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 1617,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 1425,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 1233,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 1041,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 849,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 657,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
   }),
 ];
 
-const frames = [];
+const frames = [
+  new Sprite({
+    position: {
+      x: 2335,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 2143,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1951,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1759,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1567,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1375,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1183,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 991,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 799,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+  new Sprite({
+    position: {
+      x: 607,
+      y: 32,
+    },
+    imageSrc: "./img/frame.png",
+  }),
+];
 
 const signs = [
   new Sprite({
@@ -377,6 +534,9 @@ function animate() {
     });
     blocks.forEach((block) => {
       block.update();
+    });
+    frames.forEach((frame) => {
+      frame.update();
     });
     blockCollisionBlocks.forEach((block) => {
       block.update();

@@ -17,9 +17,9 @@ canvas {
 #overlay {
   position: fixed;
   top: 40%;
-  left: 34%;
+  left: 40%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 4px rgb(210, 187, 119) outset;
   border-radius: 10px;
   width: 400px;
@@ -28,14 +28,13 @@ canvas {
 }
 
 #overlay-text {
-  font-family: 'Press Start 2P';
-
+  font-family: "Press Start 2P";
 }
 
 .invisible {
   visibility: hidden;
   animation: fadeOut 1s;
-    opacity: 0;
+  opacity: 0;
 }
 
 @keyframes fadeOut {
@@ -48,26 +47,25 @@ canvas {
 }
 
 .visible {
-    position: absolute;
-    animation: fadeIn 750ms, MoveUpDown 3s linear infinite;
-    opacity: 1;
-    }
+  position: absolute;
+  animation: fadeIn 750ms, MoveUpDown 3s linear infinite;
+  opacity: 1;
+}
 @keyframes fadeIn {
   from {
-  	opacity: 0;
+    opacity: 0;
   }
   to {
- 	opacity: 1;
+    opacity: 1;
   }
 }
-  
+
 @keyframes MoveUpDown {
-  0%, 100%{
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-5px);
   }
 }
-
-
