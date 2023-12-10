@@ -579,7 +579,7 @@ function animate() {
         p.innerHTML = door.message;
         div.setAttribute("class", "visible");
 
-        if (keys.w.pressed) {
+        if (player.velocity.x === 0 && keys.w.pressed) {
           window.open(door.url);
           keys.w.pressed = false;
         }
