@@ -142,6 +142,9 @@ const keys = {
   a: {
     pressed: false,
   },
+  w: {
+    pressed: false,
+  },
 };
 
 const blocks = [
@@ -254,39 +257,69 @@ const layers = [
   }),
 ];
 
+const doors = [
+  new Sprite({
+    position: {
+      x: 2385,
+      y: 128,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+  }),
+  new Sprite({
+    position: {
+      x: 140,
+      y: 896,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 4,
+    autoplay: false,
+    loop: false,
+    message: "Enter... If you dare...",
+    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  }),
+];
+
+const frames = [];
+
 const signs = [
   new Sprite({
     position: {
-      x:750,
-      y:928,
+      x: 750,
+      y: 928,
     },
-    imageSrc: './img/sign.png',
-    message: "Hello. This is my world"
+    imageSrc: "./img/sign.png",
+    message: "Hello. This is my world",
   }),
   new Sprite({
     position: {
-      x:1600,
-      y:928,
+      x: 1600,
+      y: 928,
     },
-    imageSrc: './img/sign.png',
-    message: 'Fall down the well to check out my contact info.'
+    imageSrc: "./img/sign.png",
+    message: "Fall down the well to check out my contact info.",
   }),
   new Sprite({
     position: {
-      x:1900,
-      y:928,
+      x: 1900,
+      y: 928,
     },
-    imageSrc: './img/sign.png',
-    message: 'Go up to see my previous projects.'
+    imageSrc: "./img/sign.png",
+    message: "Go up to see my previous projects.",
   }),
   new Sprite({
     position: {
-      x:2386,
-      y:416,
+      x: 2386,
+      y: 416,
     },
-    imageSrc: './img/sign.png'
+    imageSrc: "./img/sign.png",
+    message: "Keep going! You're almost there!",
   }),
-]
+];
 
 const backgroundImageHeight = 1728;
 
@@ -297,11 +330,11 @@ const camera = {
   },
 };
 
-let visible = false
+let visible = false;
 
 function animate() {
   window.requestAnimationFrame(animate);
-  
+
   now = Date.now();
   elapsed = now - then;
   if (elapsed > fpsInterval) {
@@ -345,9 +378,6 @@ function animate() {
     blocks.forEach((block) => {
       block.update();
     });
-    signs.forEach((sign) => {
-      sign.update()
-    })
     blockCollisionBlocks.forEach((block) => {
       block.update();
     });
@@ -358,29 +388,48 @@ function animate() {
       block.update();
     });
 
-    let div = document.querySelector('#overlay')
-    div.setAttribute('class', 'invisible')
+    let div = document.querySelector("#overlay");
+    div.setAttribute("class", "invisible");
+
+    doors.forEach((door) => {
+      door.draw();
+
+      if (
+        player.position.x + player.width > door.position.x &&
+        player.position.x < door.position.x + door.width &&
+        player.position.y >= door.position.y &&
+        player.position.y <= door.position.y + door.height
+      ) {
+        door.update();
+        let div = document.querySelector("#overlay");
+        let p = document.querySelector("#overlay-text");
+        p.innerHTML = door.message;
+        div.setAttribute("class", "visible");
+
+        if (keys.w.pressed) {
+          window.open(door.url);
+          keys.w.pressed = false;
+        }
+      } else {
+        door.reverseUpdateFrames();
+      }
+    });
 
     signs.forEach((sign) => {
-      let signTrigger = {
-        position: {
-          x: sign.position.x - 15,
-          y: sign.position.y - 36,
-        },
-        width: sign.width + 30,
-        height: sign.height + 36,
+      sign.update();
+
+      if (
+        player.position.x + player.width > sign.position.x &&
+        player.position.x < sign.position.x + sign.width &&
+        player.position.y + player.height > sign.position.y &&
+        player.position.y < sign.position.y + sign.height
+      ) {
+        let div = document.querySelector("#overlay");
+        let p = document.querySelector("#overlay-text");
+        p.innerHTML = sign.message;
+        div.setAttribute("class", "visible");
       }
-      
-      // c.fillStyle = 'rgba(255, 0, 0, .5)'
-      // c.fillRect(signTrigger.position.x, signTrigger.position.y, signTrigger.width, signTrigger.height)
-              
-      if(player.position.x + player.width > sign.position.x && player.position.x < sign.position.x + sign.width && player.position.y + player.height > sign.position.y){
-        let div = document.querySelector('#overlay')
-        let p = document.querySelector('#overlay-text')
-        p.innerHTML = sign.message
-        div.setAttribute('class', 'visible')
-      }
-    })
+    });
 
     if (player.velocity.y < 0) {
       player.shouldPanCameraDown({ camera, canvas });
@@ -394,6 +443,8 @@ function animate() {
 
     player.checkForHorizontalCanvasCollision();
     player.update();
+
+    // console.log(`x: ${player.position.x} y: ${player.position.y}`);
 
     c.restore();
   }
@@ -415,6 +466,9 @@ window.addEventListener("keydown", (event) => {
       break;
     case "a":
       keys.a.pressed = true;
+      break;
+    case "w":
+      keys.w.pressed = true;
       break;
     case " ":
       if (
@@ -438,6 +492,8 @@ window.addEventListener("keyup", (event) => {
     case "a":
       keys.a.pressed = false;
       break;
+    case "w":
+      keys.w.pressed = false;
+      break;
   }
 });
-

@@ -6,7 +6,10 @@ class Sprite {
     frameBuffer = 3,
     scale = 1,
     parallax = 0,
-    message = ""
+    message = "",
+    loop = true,
+    autoplay = true,
+    url = "",
   }) {
     this.position = position;
     this.scale = scale;
@@ -24,7 +27,11 @@ class Sprite {
     this.elapsedFrames = 0;
     this.parallax = parallax;
     this.moveCamera = false;
-    this.message = message
+    this.message = message;
+    this.loop = loop;
+    this.autoplay = autoplay;
+    this.url = url;
+    this.currentAnimation;
   }
 
   draw() {
@@ -72,7 +79,26 @@ class Sprite {
 
     if (this.elapsedFrames % this.frameBuffer === 0) {
       if (this.currentFrame < this.frameRate - 1) this.currentFrame++;
-      else this.currentFrame = 0;
+      else if (this.loop) this.currentFrame = 0;
+    }
+
+    if (this.currentAnimation?.onComplete) {
+      if (
+        this.currentFrame === this.frameRate - 1 &&
+        !this.currentAnimation.isActive
+      ) {
+        this.currentAnimation.onComplete();
+        this.currentAnimation.isActive = false;
+      }
+    }
+  }
+
+  reverseUpdateFrames() {
+    this.elapsedFrames++;
+
+    if (this.elapsedFrames % this.frameBuffer === 0) {
+      if (this.currentFrame > 0) this.currentFrame--;
+      else if (this.loop) this.currentFrame = 0;
     }
   }
 }
