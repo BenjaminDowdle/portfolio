@@ -260,6 +260,19 @@ const layers = [
 const doors = [
   new Sprite({
     position: {
+      x: 150,
+      y: 928,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+    message: "Enter with 'W'... if you dare...",
+    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  }),
+  new Sprite({
+    position: {
       x: 2385,
       y: 128,
     },
