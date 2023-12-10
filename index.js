@@ -279,7 +279,7 @@ const doors = [
     frameBuffer: 4,
     autoplay: false,
     loop: false,
-    message: "Enter... If you dare...",
+    message: "Enter with 'W'... If you dare...",
     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   }),
 ];
