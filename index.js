@@ -281,6 +281,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://benjamindowdle.github.io/wdd230/bountiful-foods/",
   }),
   new Sprite({
     position: {
@@ -292,6 +294,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://github.com/BenjaminDowdle/Lush-and-Plush-Health",
   }),
   new Sprite({
     position: {
@@ -303,6 +307,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://benjamindowdle.github.io/CSE-121B/W06/index.html",
   }),
   new Sprite({
     position: {
@@ -314,6 +320,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://benjamindowdle.github.io/wdd230/chamber/index.html",
   }),
   new Sprite({
     position: {
@@ -325,6 +333,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop03",
   }),
   new Sprite({
     position: {
@@ -336,6 +346,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop04",
   }),
   new Sprite({
     position: {
@@ -347,6 +359,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
+    message: "",
+    url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop05",
   }),
   new Sprite({
     position: {
@@ -358,28 +372,8 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-  }),
-  new Sprite({
-    position: {
-      x: 849,
-      y: 128,
-    },
-    imageSrc: "./img/door.png",
-    frameRate: 6,
-    frameBuffer: 5,
-    autoplay: false,
-    loop: false,
-  }),
-  new Sprite({
-    position: {
-      x: 657,
-      y: 128,
-    },
-    imageSrc: "./img/door.png",
-    frameRate: 6,
-    frameBuffer: 5,
-    autoplay: false,
-    loop: false,
+    message: "",
+    url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop02",
   }),
 ];
 
@@ -440,19 +434,64 @@ const frames = [
     },
     imageSrc: "./img/frame.png",
   }),
+];
+
+const images = [
   new Sprite({
     position: {
-      x: 799,
+      x: 2335,
       y: 32,
     },
-    imageSrc: "./img/frame.png",
+    imageSrc: "./img/IMG-Bountiful-Foods.png",
   }),
   new Sprite({
     position: {
-      x: 607,
+      x: 2143,
       y: 32,
     },
-    imageSrc: "./img/frame.png",
+    imageSrc: "./img/IMG-Soap.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1951,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-Random-Fact.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1759,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-UT-Commerce.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1567,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-Scripture-Memorizer.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1375,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-Mindfullness-App.png",
+  }),
+  new Sprite({
+    position: {
+      x: 1183,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-Goals-App.png",
+  }),
+  new Sprite({
+    position: {
+      x: 991,
+      y: 32,
+    },
+    imageSrc: "./img/IMG-Mindfullness-App.png",
   }),
 ];
 
@@ -488,6 +527,14 @@ const signs = [
     },
     imageSrc: "./img/sign.png",
     message: "Keep going! You're almost there!",
+  }),
+  new Sprite({
+    position: {
+      x: 849,
+      y: 160,
+    },
+    imageSrc: "./img/sign.png",
+    message: "More projects under construction...",
   }),
 ];
 
@@ -547,6 +594,9 @@ function animate() {
     });
     blocks.forEach((block) => {
       block.update();
+    });
+    images.forEach((image) => {
+      image.update();
     });
     frames.forEach((frame) => {
       frame.update();
