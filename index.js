@@ -281,7 +281,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Bountiful Foods - This site is for a fictional business. During the development of the site, I focused most of my time on making the colors, fonts, and styles mesh well with one another. I also utilized a nutritional fact API to print out information on the drink that you was made through the drink making process.",
     url: "https://benjamindowdle.github.io/wdd230/bountiful-foods/",
   }),
   new Sprite({
@@ -294,7 +294,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Lush and Plush Health - This site was developed for a small business that sells soaps and other health products. I focused mainly on building my own cart system as well as utilizing the payment processor, Stripe's, REST API. Development was cut short due to lack of following through on the customer's part.",
     url: "https://github.com/BenjaminDowdle/Lush-and-Plush-Health",
   }),
   new Sprite({
@@ -307,7 +307,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Random Fact Generator - This site utilizes a simple API which generates a little random fact every time that the button on screen is pushed. This project was both fun to build and a really good intro to APIs and how they work.",
     url: "https://benjamindowdle.github.io/CSE-121B/W06/index.html",
   }),
   new Sprite({
@@ -320,7 +320,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "UT Commerce - This site was a project for school. Throughout development, I really learned a lot about responsive design and how important it is to optimize the site for all different screen sizes.",
     url: "https://benjamindowdle.github.io/wdd230/chamber/index.html",
   }),
   new Sprite({
@@ -333,7 +333,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Scripture Memorizer - This program was built with C# and is a project that I am quite proud of. It provides a list of scriptures that the user can choose from and the program will help the user memorize the scripture by blanking out words. Entering the door will take you to the GitHub page with all of the source code.",
     url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop03",
   }),
   new Sprite({
@@ -346,7 +346,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Mindfullness App - This program was built in C#. It features the use of classes in order to minimize the use of repeated code. This program will guide the user through exercises to help the user become more aware of their mental state. Entering the door will take you to the GitHub page with all of the source code.",
     url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop04",
   }),
   new Sprite({
@@ -359,7 +359,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Goal Setter - This program helps the user set different kinds of goals. It also awards points for each goal that is completed. Point values depending on the size of the goal that was completed. Entering the door will take you to the GitHub page with all of the source code.",
     url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop05",
   }),
   new Sprite({
@@ -372,7 +372,7 @@ const doors = [
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "",
+    message: "Journal App - This program features the ability to write journal entries and save them to a file of the user's choosing. Once saved, the files can be pulled up to be read later on. Entering the door will take you to the GitHub page with all of the source code.",
     url: "https://github.com/BenjaminDowdle/cse210-projects/tree/main/prove/Develop02",
   }),
 ];
