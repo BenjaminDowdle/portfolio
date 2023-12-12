@@ -234,7 +234,7 @@ const layers = [
   new Sprite({
     position: {
       x: 0,
-      y: 828,
+      y: 840,
     },
     imageSrc: "./img/background-layer-2.png",
     parallax: 2,
@@ -528,7 +528,15 @@ const signs = [
       y: 928,
     },
     imageSrc: "./img/sign.png",
-    message: "Hello. This is my world",
+    message: "Hello! My name is Ben. I have created this world to help showcase my creativity as well as the different projects that I have made in my spare time.",
+  }),
+  new Sprite({
+    position: {
+      x: 950,
+      y: 928,
+    },
+    imageSrc: "./img/sign.png",
+    message: "Please feel free to take a look around and explore the world. I'm sure if you look hard enough you just might find a secret or two.",
   }),
   new Sprite({
     position: {
@@ -536,7 +544,7 @@ const signs = [
       y: 928,
     },
     imageSrc: "./img/sign.png",
-    message: "Fall down the well to check out my contact info.",
+    message: "Fall down the well to check out my contact information.",
   }),
   new Sprite({
     position: {
@@ -544,7 +552,7 @@ const signs = [
       y: 928,
     },
     imageSrc: "./img/sign.png",
-    message: "Go up to see my previous projects.",
+    message: "Follow the colored platforms to check out my projects. I'm very proud of how all of them turned out.",
   }),
   new Sprite({
     position: {
@@ -568,7 +576,7 @@ const signs = [
       y: 1553,
     },
     imageSrc: "./img/sign.png",
-    message: "More projects under construction...",
+    message: "Please enter the doors to the right and feel free to contact me. Once you're ready to leave, you'll be granted a super jump when standing at the bottom of the well.",
   }),
 ];
 
