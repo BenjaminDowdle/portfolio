@@ -260,16 +260,42 @@ const layers = [
 const doors = [
   new Sprite({
     position: {
-      x: 150,
-      y: 896,
+      x: 1368,
+      y: 1521,
     },
     imageSrc: "./img/door.png",
     frameRate: 6,
     frameBuffer: 5,
     autoplay: false,
     loop: false,
-    message: "Enter with 'W'... if you dare...",
-    url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    message: "Email",
+    url: "mailto:benjamindowdle99@gmail.com",
+  }),
+  new Sprite({
+    position: {
+      x: 1240,
+      y: 1521,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+    message: "LinkedIn",
+    url: "https://www.linkedin.com/in/brd99/",
+  }),
+  new Sprite({
+    position: {
+      x: 1496,
+      y: 1521,
+    },
+    imageSrc: "./img/door.png",
+    frameRate: 6,
+    frameBuffer: 5,
+    autoplay: false,
+    loop: false,
+    message: "GitHub",
+    url: "https://github.com/BenjaminDowdle",
   }),
   new Sprite({
     position: {
@@ -532,6 +558,14 @@ const signs = [
     position: {
       x: 849,
       y: 160,
+    },
+    imageSrc: "./img/sign.png",
+    message: "More projects under construction...",
+  }),
+  new Sprite({
+    position: {
+      x: 1592,
+      y: 1553,
     },
     imageSrc: "./img/sign.png",
     message: "More projects under construction...",
