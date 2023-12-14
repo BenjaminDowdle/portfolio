@@ -17,7 +17,7 @@ canvas {
 #overlay {
   position: fixed;
   top: 40%;
-  left: 40%;
+  left: 32%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.5);
   border: 4px rgb(210, 187, 119) outset;

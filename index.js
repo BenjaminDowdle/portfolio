@@ -2,7 +2,8 @@ const stop = false;
 let frameCount = 0;
 var fps, fpsInterval, startTime, now, then, elapsed;
 
-const jump = new Audio('./sounds/jump.mp3')
+const jump = new Audio("./sounds/jump.mp3");
+jump.volume = 0.3;
 
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
@@ -708,7 +709,7 @@ function animate() {
     });
 
     let div = document.querySelector("#overlay");
-    let p = document.querySelector("#overlay-text")
+    let p = document.querySelector("#overlay-text");
     div.setAttribute("class", "invisible");
 
     doors.forEach((door) => {
@@ -796,10 +797,10 @@ window.addEventListener("keydown", (event) => {
         player.position.x >= 1645 &&
         player.position.y >= 1510
       ) {
-        jump.play()
+        jump.play();
         player.velocity.y = -32;
       } else if (player.velocity.y === 0) {
-        jump.play()
+        jump.play();
         player.velocity.y = -11.5;
         break;
       }
