@@ -4,13 +4,14 @@
   }
   
   canvas {
-    width: 60%;
+    top: 200px;
+    width: 70%;
     border-radius: 0px;
   }
 
   #badge {
     position: fixed;
-    bottom: 5%;
+    bottom: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(40, 40, 40);
@@ -34,25 +35,25 @@
   
   #left-button {
     position: fixed;
-    top: 82%;
-    left: 48px;
+    top: 75%;
+    left: 64px;
   }
 
   #right-button {
     position: fixed;
-    top: 82%;
-    left: 144px;
+    top: 75%;
+    left: 160px;
   }
 
   #jump-button {
     position: fixed;
-    top: 82%;
-    left: 75%;
+    top: 75%;
+    left: 76%;
   }
 
   #enter-button {
     position: fixed;
-    top: 65%;
-    left: 85%;
+    top: 58%;
+    left: 88%;
   }
 }
