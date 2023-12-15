@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  body {
+    background-color: rgb(31, 53, 173);
+  }
+  canvas {
+    top: 22%;
+    width: 100%;
+  }
+
+  button {
+    background-color: rgb(73, 73, 73);
+    border: none;
+    padding: 0px;
+    border-radius: 12px;
+  }
+}

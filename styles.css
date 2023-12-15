@@ -33,6 +33,10 @@ canvas {
   font-family: "Press Start 2P";
 }
 
+button {
+  visibility: hidden;
+}
+
 .invisible {
   visibility: hidden;
   animation: fadeOut 1s;
