@@ -3,10 +3,10 @@ let frameCount = 0;
 var fps, fpsInterval, startTime, now, then, elapsed;
 
 //Sounds
-const jump = new Audio("./sounds/jump.mp3");
-jump.volume = 0.3;
+const jumpSFX = new Audio("./sounds/jump.mp3");
+jumpSFX.volume = 0.3;
 
-const running = new Audio("./sounds/running.mp3");
+const runningSFX = new Audio("./sounds/running.mp3");
 
 //Canvas Setup
 const canvas = document.querySelector("canvas");
@@ -679,7 +679,7 @@ function animate() {
       player.lastDirection = "right";
       player.shouldPanCameraToTheLeft({ canvas, camera });
       if (player.velocity.y === 0) {
-        running.play();
+        runningSFX.play();
       }
       if (player.moveCamera === true) {
         layers.forEach((layer) => {
@@ -693,7 +693,7 @@ function animate() {
       player.lastDirection = "left";
       player.shouldPanCameraToTheRight({ canvas, camera });
       if (player.velocity.y === 0) {
-        running.play();
+        runningSFX.play();
       }
 
       if (player.moveCamera === true) {
@@ -802,6 +802,93 @@ function startAnimating(fps) {
 
 startAnimating(60);
 
+const left = document.querySelector("#left-button")
+const right = document.querySelector("#right-button")
+const jump = document.querySelector("#jump-button")
+const enter = document.querySelector("#enter-button")
+
+window.addEventListener("mousedown", (event) => {
+  switch (event.target.id) {
+    case "right-button":
+      keys.d.pressed = true;
+      break;
+    case "left-button": 
+      keys.a.pressed = true;
+      break;
+    case "enter-button": 
+      keys.w.pressed = true;
+      break;
+    case "jump-button": 
+      if (
+        player.velocity.y === 0 &&
+        player.position.x >= 1645 &&
+        player.position.y >= 1510
+      ) {
+        jumpSFX.play();
+        player.velocity.y = -32;
+      } else if (player.velocity.y === 0) {
+        jumpSFX.play();
+        player.velocity.y = -11.5;
+        break;
+      }
+  }
+})
+
+window.addEventListener("mouseup", (event) => {
+  switch (event.target.id) {
+    case "right-button":
+      keys.d.pressed = false;
+      break;
+    case "left-button": 
+      keys.a.pressed = false;
+      break;
+    case "enter-button": 
+      keys.w.pressed = false;
+      break;
+  }
+})
+
+window.addEventListener("touchstart", (event) => {
+  switch (event.target.id) {
+    case "right-button":
+      keys.d.pressed = true;
+      break;
+    case "left-button": 
+      keys.a.pressed = true;
+      break;
+    case "enter-button": 
+      keys.w.pressed = true;
+      break;
+    case "jump-button": 
+      if (
+        player.velocity.y === 0 &&
+        player.position.x >= 1645 &&
+        player.position.y >= 1510
+      ) {
+        jumpSFX.play();
+        player.velocity.y = -32;
+      } else if (player.velocity.y === 0) {
+        jumpSFX.play();
+        player.velocity.y = -11.5;
+        break;
+      }
+  }
+})
+
+window.addEventListener("touchend", (event) => {
+  switch (event.target.id) {
+    case "right-button":
+      keys.d.pressed = false;
+      break;
+    case "left-button": 
+      keys.a.pressed = false;
+      break;
+    case "enter-button": 
+      keys.w.pressed = false;
+      break;
+  }
+})
+
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "d":
@@ -822,10 +909,10 @@ window.addEventListener("keydown", (event) => {
         player.position.x >= 1645 &&
         player.position.y >= 1510
       ) {
-        jump.play();
+        jumpSFX.play();
         player.velocity.y = -32;
       } else if (player.velocity.y === 0) {
-        jump.play();
+        jumpSFX.play();
         player.velocity.y = -11.5;
         break;
       }
