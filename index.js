@@ -807,6 +807,8 @@ const right = document.querySelector("#right-button")
 const jump = document.querySelector("#jump-button")
 const enter = document.querySelector("#enter-button")
 
+
+//Digital controller for mobile
 window.addEventListener("mousedown", (event) => {
   switch (event.target.id) {
     case "right-button":
