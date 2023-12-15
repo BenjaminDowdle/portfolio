@@ -2,9 +2,13 @@ const stop = false;
 let frameCount = 0;
 var fps, fpsInterval, startTime, now, then, elapsed;
 
+//Sounds
 const jump = new Audio("./sounds/jump.mp3");
 jump.volume = 0.3;
 
+const running = new Audio("./sounds/running.mp3");
+
+//Canvas Setup
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
@@ -16,6 +20,7 @@ const scaledCanvas = {
   height: canvas.height * 1.9,
 };
 
+//Floor Collisions
 const floorCollisions2D = [];
 for (let i = 0; i < floorCollisions.length; i += 192) {
   floorCollisions2D.push(floorCollisions.slice(i, i + 192));
@@ -37,6 +42,7 @@ floorCollisions2D.forEach((row, y) => {
   });
 });
 
+//Block Collisions
 const blockCollisions2D = [];
 for (let i = 0; i < blockCollisions.length; i += 128) {
   blockCollisions2D.push(blockCollisions.slice(i, i + 128));
@@ -60,6 +66,7 @@ blockCollisions2D.forEach((row, y) => {
   });
 });
 
+//Platform Collisions
 const platformCollisions2D = [];
 for (let i = 0; i < platformCollisions.length; i += 192) {
   platformCollisions2D.push(platformCollisions.slice(i, i + 192));
@@ -84,6 +91,7 @@ platformCollisions2D.forEach((row, y) => {
 
 const gravity = 0.6;
 
+//Player Creation
 const player = new Player({
   position: {
     x: 75,
@@ -138,6 +146,7 @@ const player = new Player({
   },
 });
 
+//Keys
 const keys = {
   d: {
     pressed: false,
@@ -150,6 +159,7 @@ const keys = {
   },
 };
 
+//Block Creation
 const blocks = [
   new Sprite({
     position: {
@@ -202,6 +212,7 @@ const blocks = [
   }),
 ];
 
+//Background Layer Creation
 const layers = [
   new Sprite({
     position: {
@@ -260,6 +271,7 @@ const layers = [
   }),
 ];
 
+//Door Creation
 const doors = [
   new Sprite({
     position: {
@@ -311,7 +323,7 @@ const doors = [
     autoplay: false,
     loop: false,
     message:
-      "Bountiful Foods - This site is for a fictional business. During the development of the site, I focused most of my time on making the colors, fonts, and styles mesh well with one another. I also utilized a nutritional fact API to print out information on the drink was made through the drink making process.",
+      "Bountiful Foods - This site is for a fictional business. During the development of the site, I focused most of my time on making the colors, fonts, and styles mesh well with one another. I also utilized a nutritional fact API to print out information on the drink that was made through the drink making process.",
     url: "https://benjamindowdle.github.io/wdd230/bountiful-foods/",
   }),
   new Sprite({
@@ -427,6 +439,7 @@ const doors = [
   }),
 ];
 
+//Picture Frame Creation
 const frames = [
   new Sprite({
     position: {
@@ -486,6 +499,7 @@ const frames = [
   }),
 ];
 
+//Picture Frame Images
 const images = [
   new Sprite({
     position: {
@@ -545,6 +559,7 @@ const images = [
   }),
 ];
 
+//Sign Creation
 const signs = [
   new Sprite({
     position: {
@@ -553,7 +568,7 @@ const signs = [
     },
     imageSrc: "./img/sign.png",
     message:
-      "Hello! My name is Ben. I have created this world to help showcase my creativity as well as the different projects that I have made in my spare time.",
+      "Hello! My name is Ben. I've created this world to help showcase my creativity as well as the different projects that I've made in my spare time.",
   }),
   new Sprite({
     position: {
@@ -604,7 +619,7 @@ const signs = [
     },
     imageSrc: "./img/sign.png",
     message:
-      "Please enter the doors to the right and feel free to contact me. Once you're ready to leave, you'll be granted a super jump when standing at the bottom of the well.",
+      "Please enter the doors to the left and feel free to contact me. Once you're ready to leave, you'll be granted a super jump when standing at the bottom of the well.",
   }),
   new Sprite({
     position: {
@@ -613,7 +628,7 @@ const signs = [
     },
     imageSrc: "./img/sTony-the-stone.png",
     message:
-      "Woah! You found me! I've been waiting for this moment for so long... My name is sTony the Stone. It is really nice to meet you. *sigh* I really can't believe that you actually found me. Good job. Really. Since you found me, I will grant you a super jump to get out of this room.",
+      "Woah! You found me! I've been waiting for this moment for so long... My name is sTony the Stone. It is really nice to meet you. *sigh* I really can't believe that you actually found me. Good job. Really. But I bet you can't find my brothers. Anyways... since you found me, I will grant you a super jump to get out of this room.",
   }),
   new Sprite({
     position: {
@@ -644,8 +659,7 @@ const camera = {
   },
 };
 
-let visible = false;
-
+//Main Animate Function -- This function handles the scene movement, player movement, camera movement, and scene placement, as well as some other logic for certain animations.
 function animate() {
   window.requestAnimationFrame(animate);
 
@@ -664,6 +678,9 @@ function animate() {
       player.velocity.x = 5;
       player.lastDirection = "right";
       player.shouldPanCameraToTheLeft({ canvas, camera });
+      if (player.velocity.y === 0) {
+        running.play();
+      }
       if (player.moveCamera === true) {
         layers.forEach((layer) => {
           layer.parallaxRight();
@@ -675,6 +692,10 @@ function animate() {
       player.velocity.x = -5;
       player.lastDirection = "left";
       player.shouldPanCameraToTheRight({ canvas, camera });
+      if (player.velocity.y === 0) {
+        running.play();
+      }
+
       if (player.moveCamera === true) {
         layers.forEach((layer) => {
           layer.parallaxLeft();
@@ -771,6 +792,7 @@ function animate() {
   }
 }
 
+//Frame Throttling
 function startAnimating(fps) {
   fpsInterval = 1000 / fps;
   then = Date.now();
@@ -783,12 +805,15 @@ startAnimating(60);
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "d":
+    case "ArrowRight":
       keys.d.pressed = true;
       break;
     case "a":
+    case "ArrowLeft":
       keys.a.pressed = true;
       break;
     case "w":
+    case "ArrowUp":
       keys.w.pressed = true;
       break;
     case " ":
@@ -810,12 +835,15 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "d":
+    case "ArrowRight":
       keys.d.pressed = false;
       break;
     case "a":
+    case "ArrowLeft":
       keys.a.pressed = false;
       break;
     case "w":
+    case "ArrowUp":
       keys.w.pressed = false;
       break;
   }
