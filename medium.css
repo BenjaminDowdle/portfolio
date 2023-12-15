@@ -1,6 +1,58 @@
 @media (min-width: 768px) and (max-width: 1100px) {
+  body {
+    background: linear-gradient(to bottom, rgb(135, 85, 222) 0%, rgb(72, 41, 125) 100%);
+  }
+  
   canvas {
-    width: 100%;
+    width: 60%;
     border-radius: 0px;
+  }
+
+  #badge {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(40, 40, 40);
+    color: rgb(212, 212, 212);
+    height: auto;
+    padding: 0px 16px;
+    border: rgb(212, 212, 212) 2px solid;
+    border-radius: 30px;
+    z-index: -1;
+    font-size: 10px;
+  }
+
+  button {
+    position: relative;
+    background-color: rgb(235, 235, 235);
+    border: none;
+    padding: 0px;
+    border-radius: 12px;
+    bottom: 10%;
+  }
+  
+  #left-button {
+    position: fixed;
+    top: 82%;
+    left: 48px;
+  }
+
+  #right-button {
+    position: fixed;
+    top: 82%;
+    left: 144px;
+  }
+
+  #jump-button {
+    position: fixed;
+    top: 82%;
+    left: 75%;
+  }
+
+  #enter-button {
+    position: fixed;
+    top: 65%;
+    left: 85%;
   }
 }

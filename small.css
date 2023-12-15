@@ -23,7 +23,7 @@
 
   button {
     position: relative;
-    background-color: rgb(73, 73, 73);
+    background-color: rgb(235, 235, 235);
     border: none;
     padding: 0px;
     border-radius: 12px;
@@ -59,7 +59,7 @@
     top: 325px;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: black;
+    background-color: rgb(40, 40, 40);
     color: rgb(212, 212, 212);
     height: auto;
     padding: 0px 16px;
