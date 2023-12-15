@@ -850,6 +850,7 @@ window.addEventListener("mouseup", (event) => {
   }
 })
 
+//Touch Controls
 window.addEventListener("touchstart", (event) => {
   switch (event.target.id) {
     case "right-button":
@@ -891,6 +892,7 @@ window.addEventListener("touchend", (event) => {
   }
 })
 
+//Keyboard controls
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "d":
@@ -937,3 +939,5 @@ window.addEventListener("keyup", (event) => {
       break;
   }
 });
+
+
