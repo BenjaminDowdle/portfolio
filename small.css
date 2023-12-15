@@ -3,7 +3,7 @@
     background-color: rgb(31, 53, 173);
   }
   canvas {
-    top: 20%;
+    top: 150px;
     width: 95%;
     border-radius: 0px;
   }
@@ -55,7 +55,7 @@
 
   #badge {
     position: fixed;
-    top: 42%;
+    top: 325px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
