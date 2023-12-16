@@ -77,4 +77,15 @@
     top: 58%;
     right: 64px;
   }
+  #controller-1 {
+    visibility: hidden;
+  }
+
+  #controller-2 {
+    visibility: hidden;
+  }
+
+  #purple-stripe {
+    visibility: hidden;
+  }
 }
