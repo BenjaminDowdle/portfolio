@@ -1,10 +1,14 @@
 @media (max-width: 768px) {
   body {
     height: 100%;
-    background: linear-gradient(to bottom, rgb(40, 40, 177) 0%, rgb(15, 15, 104) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgb(40, 40, 177) 0%,
+      rgb(15, 15, 104) 100%
+    );
   }
   canvas {
-    top: 150px;
+    top: 23%;
     width: 95%;
     border-radius: 0px;
   }
@@ -14,9 +18,8 @@
     top: 10%;
     left: 5%;
     transform: translate(-50%, -50%);
-    opacity: 1;
   }
-  
+
   #overlay-text {
     font-size: 10px;
   }
@@ -28,8 +31,13 @@
     padding: 0px;
     border-radius: 12px;
     bottom: 10%;
+    touch-action: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
   }
-  
+
   #left-button {
     position: fixed;
     top: 75%;
@@ -56,7 +64,7 @@
 
   #badge {
     position: fixed;
-    top: 325px;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(40, 40, 40);
@@ -81,7 +89,12 @@
   }
 
   #hinge div {
-    background: linear-gradient(to top, rgb(13, 25, 94) 10%, rgb(77, 98, 214) 50%, rgb(26, 46, 161) 100%);
+    background: linear-gradient(
+      to top,
+      rgb(13, 25, 94) 10%,
+      rgb(77, 98, 214) 50%,
+      rgb(26, 46, 161) 100%
+    );
     border-left: rgb(17, 30, 112) 2px solid;
   }
 }

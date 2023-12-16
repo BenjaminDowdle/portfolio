@@ -1,17 +1,22 @@
 @media (min-width: 768px) and (max-width: 1100px) {
   body {
-    background: linear-gradient(to bottom, rgb(135, 85, 222) 0%, rgb(72, 41, 125) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgb(135, 85, 222) 0%,
+      rgb(72, 41, 125) 100%
+    );
   }
-  
+
   canvas {
-    top: 200px;
-    width: 70%;
+    top: 46%;
+    height: 80%;
+    width: auto;
     border-radius: 0px;
   }
 
   #badge {
     position: fixed;
-    bottom: 15%;
+    bottom: 0px;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(40, 40, 40);
@@ -31,8 +36,24 @@
     padding: 0px;
     border-radius: 12px;
     bottom: 10%;
+    touch-action: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
   }
-  
+
+  #overlay {
+    top: 10%;
+    max-width: 65%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+  }
+
+  #overlay-text {
+    font-size: 16px;
+  }
+
   #left-button {
     position: fixed;
     top: 75%;
@@ -48,12 +69,12 @@
   #jump-button {
     position: fixed;
     top: 75%;
-    left: 76%;
+    right: 160px;
   }
 
   #enter-button {
     position: fixed;
     top: 58%;
-    left: 88%;
+    right: 64px;
   }
 }
